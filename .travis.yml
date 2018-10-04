@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "8"
+before_script:
+  - yarn install
+script:
+  - yarn run test
+  - yarn run build
+deploy:
+ provider: pages
+ skip_cleanup: true
+ local_dir: build
+ github_token: $GITHUB_TOKEN
+ on:
+  branch: master
